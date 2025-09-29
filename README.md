@@ -61,7 +61,8 @@ source .venv/bin/activate    # Linux/Mac
 pip install -r requirements.txt
 ```
 ### 4. Config(`config.ini`)
-Controls the calibration setup. Increasing `target_speed` makes the calibration faster but lesser data points collected. `record_frame_rate` specifes the number of frames of data colleced per second. Adjust it according to individual webcam specs.
+Controls the calibration setup. Increasing `target_speed` speeds up calibration but reduces the number of samples collected.  
+`record_frame_rate` defines how many frames are captured each second. Adjust it based on your webcam’s specs.
 ```ini
 [DEFAULT]
 image_size = 64
