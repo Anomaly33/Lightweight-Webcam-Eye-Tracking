@@ -114,5 +114,5 @@ python main.py
   - 1 = SGD, 2 = Ridge, 3 = MLP, 4 = SVR, 5 = XGB
 - Press SPACE to start the test sequence.
 - A green rectangle appears at random positions every ~3 s.
-- Move the dot into the rectangle and press E to record a success.
+- Move the dot into the rectangle and press `e` to record a success.
 - At the end, accuracy is displayed and saved under
