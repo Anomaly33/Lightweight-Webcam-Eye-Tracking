@@ -1,9 +1,5 @@
 # Lightweight-Webcam-Eye-Tracking
 A **webcam-only** eye-tracking system that works on **any screen size**.  
-Edit this line in `main.py` to set your exact window size/flags:
-```python
-screen = pygame.display.set_mode((1920, 1080), pygame.NOFRAME)
-```
 It has been tested on large displays where traditional IR eye trackers often struggle or are impractical.
 The system extracts 478×3 MediaPipe FaceMesh landmarks and learns lightweight ML regressors to predict on-screen gaze coordinates in real time. Includes fast calibration, testing UI, and tracking.
 
@@ -84,3 +80,38 @@ red = (255,0,0,255)
 green = (0,255,0,255)
 blue = (0,128,255,255)
 ```
+## 🖥️ Screen Size & Modes
+Set your desired size/flags in `main.py`
+```python
+screen = pygame.display.set_mode((1920, 1080), pygame.NOFRAME)
+```
+Examples:
+- Windowed fixed size: `pygame.display.set_mode((2560, 1440))`
+- Full-screen desktop res: `pygame.display.set_mode((0, 0), pygame.FULLSCREEN)`
+- Resizable window: `pygame.display.set_mode((1920, 1080), pygame.RESIZABLE)`
+
+## 🚀 Run
+```bash
+python main.py
+```
+### Controls — Selection Screen
+- **1** → Calibrate
+- **2** → Test
+- **3** → Track
+- **S** → Toggle stats overlay
+- **ESC** → Quit
+
+### Calibrate
+- **SPACE** → Random moving dot
+- **M** → Edge moving dot
+- **P** → Area points
+- **R** → Random points
+- After finishing, a “**Done**” screen appears and the app **auto-returns** to the menu after ~3 seconds
+
+### Test
+- From the menu press 2, then choose a model:
+  - 1 = SGD, 2 = Ridge, 3 = MLP, 4 = SVR, 5 = XGB
+- Press SPACE to start the test sequence.
+- A green rectangle appears at random positions every ~3 s.
+- Move the dot into the rectangle and press E to record a success.
+- At the end, accuracy is displayed and saved under
