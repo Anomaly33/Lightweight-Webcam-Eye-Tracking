@@ -13,7 +13,8 @@ The system extracts 478×3 Face Mesh landmarks and learns lightweight ML regress
 - **UI:** Calibration, Test (with success tally), Track
 
 ## 📌 Overview
-This project uses dense face/iris landmarks and direct regression to screen coordinates, paired with smooth-moving calibration that’s quick and tolerant to head motion. It supports any screen—just set the resolution you want with `pygame.display.set_mode(...)`. The approach is especially practical for large displays and kiosk-like setups.
+This project uses dense face/iris landmarks and direct regression to screen coordinates, paired with smooth-moving calibration that’s quick and tolerant to head motion. It supports any screen size.
+Just set the resolution you want with `pygame.display.set_mode(...)`. The approach is especially practical for large displays and kiosk-like setups.
 
 **Key Features**
 - Webcam-only pipeline with Face Mesh (refined landmarks)
