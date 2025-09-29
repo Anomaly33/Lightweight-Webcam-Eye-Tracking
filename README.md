@@ -15,8 +15,6 @@ The system extracts 478×3 MediaPipe FaceMesh landmarks and learns lightweight M
 - **Motivation:** Avoid specialized hardware; robust at larger viewing distances where classic IR trackers may not function well
 - **UI:** Calibration, Test (with success tally), Track
 
----
-
 ## 📌 Overview
 This project uses dense face/iris landmarks (MediaPipe FaceMesh) and direct regression to screen coordinates, paired with smooth-moving calibration that’s quick and tolerant to head motion. It supports any screen—just set the resolution you want with `pygame.display.set_mode(...)`. The approach is especially practical for large displays and kiosk-like setups.
 
@@ -27,16 +25,12 @@ This project uses dense face/iris landmarks (MediaPipe FaceMesh) and direct regr
 - Guard-box: auto-pauses when you leave the allowed head region; resumes on return
 - Optional region map heatmap of collected samples
 
----
-
 ## Method
 - **Landmarks & Features:** Camera frames → MediaPipe FaceMesh → 478 × (x,y,z) flattened vector
 - **Screen Prediction:** Two regressors: fₓ(features) → x and fᵧ(features) → y
 - **Calibration:** Moving target / edge / random sequences; each frame logs `[features..., target_x, target_y]` to CSV
 - **Testing:** Randomly placed green rectangle; move the dot inside and hit E to record success
 - **Tracking:** Continuous prediction with temporal averaging for smoother motion
-
----
 
 ## 📦 Project Structure
 ```graphql
@@ -52,13 +46,12 @@ eye-tracking/
 ├─ data_csvs/              # calibration CSVs (auto)
 └─ test_results/           # per-model test logs (auto)
 ```
----
 
 ## ⚙️ Setup
 ### 1. Clone the repo
 ```bash
 git clone https://github.com/Anomaly33/Lightweight-Webcam-Eye-Tracking.git
-cd hcp-fmri-domain-adversarial-classification
+cd Lightweight-Webcam-Eye-Tracking
 ```
 ### 2. Create Environment
 ```bash
@@ -70,4 +63,4 @@ source .venv/bin/activate    # Linux/Mac
 ```bash
 pip install -r requirements.txt
 ```
----
+### 4. Config(`config.ini`)
