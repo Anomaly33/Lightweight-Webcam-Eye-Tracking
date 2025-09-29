@@ -30,7 +30,8 @@ This project uses dense face/iris landmarks (MediaPipe FaceMesh) and direct regr
 - **Tracking:** Continuous prediction with temporal averaging for smoother motion
 
 ## 🎥 Demo
-<video src="assets/demo.mp4" width="800" controls muted playsinline>
+<video src="https://github.com/Anomaly33/Lightweight-Webcam-Eye-Tracking/blob/main/assets/demo.mp4"
+       width="800" controls muted playsinline>
   Your browser does not support the video tag.
 </video>
 
