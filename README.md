@@ -1,1 +1,53 @@
 # Lightweight-Webcam-Eye-Tracking
+A **webcam-only** eye-tracking system that works on **any screen size**.  
+Edit this line in `main.py` to set your exact window size/flags:
+```python
+screen = pygame.display.set_mode((1920, 1080), pygame.NOFRAME)
+It has been tested on large displays where traditional IR eye trackers often struggle or are impractical.
+The system extracts 478×3 MediaPipe FaceMesh landmarks and learns lightweight ML regressors to predict on-screen gaze coordinates in real time. Includes fast calibration, testing UI, and tracking.
+```
+---
+
+## TL;DR
+- **Task**: Map facial mesh features → 2D screen coordinates (gaze point) on any display
+- **Method:** Webcam + MediaPipe FaceMesh → SGD / Ridge / MLP / SVR / XGBoost regressors for (x, y)
+- **Motivation:** Avoid specialized hardware; robust at larger viewing distances where classic IR trackers may not function well
+- **UI:** Calibration, Test (with success tally), Track
+
+---
+
+## 📌 Overview
+This project uses dense face/iris landmarks (MediaPipe FaceMesh) and direct regression to screen coordinates, paired with smooth-moving calibration that’s quick and tolerant to head motion. It supports any screen—just set the resolution you want with `pygame.display.set_mode(...)`. The approach is especially practical for large displays and kiosk-like setups.
+
+**Key Features**
+- Webcam-only pipeline with MediaPipe FaceMesh (refined landmarks)
+- Fast calibration modes (smooth path, edges, random)
+- Lightweight ML regressors (SGD, Ridge, MLP, SVR, XGB) selectable at runtime
+- Guard-box: auto-pauses when you leave the allowed head region; resumes on return
+- Optional region map heatmap of collected samples
+
+---
+
+## Method
+- **Landmarks & Features:** Camera frames → MediaPipe FaceMesh → 478 × (x,y,z) flattened vector
+- **Screen Prediction:** Two regressors: fₓ(features) → x and fᵧ(features) → y
+- **Calibration:** Moving target / edge / random sequences; each frame logs `[features..., target_x, target_y]` to CSV
+- **Testing:** Randomly placed green rectangle; move the dot inside and hit E to record success
+- **Tracking:** Continuous prediction with temporal averaging for smoother motion
+
+---
+
+## 📦 Project Structure
+```graphql
+eye-tracking/
+├─ main.py                 # Calibrate / Test / Track UI (pygame)
+├─ Gaze.py                 # MediaPipe FaceMesh capture + guard-box (OpenCV)
+├─ Target.py               # Target (dot) + Test rectangle rendering (pygame)
+├─ utils.py                # Config, region map, helpers
+├─ create_models.py        # (Optional) offline training example
+├─ Eye_tracking_system.pdf # Method & results paper
+├─ config.ini              # Your settings (see below)
+├─ data/                   # region_map.npy (auto)
+├─ data_csvs/              # calibration CSVs (auto)
+└─ test_results/           # per-model test logs (auto)
+```
