@@ -3,6 +3,7 @@ A **webcam-only** eye-tracking system that works on **any screen size**.
 It has been tested on large displays where traditional IR eye trackers often struggle or are impractical.
 The system extracts 478×3 MediaPipe FaceMesh landmarks and learns lightweight ML regressors to predict on-screen gaze coordinates in real time. Includes fast calibration, testing UI, and tracking.
 
+![Quick Demo](assets/demo.gif)
 ---
 
 ## TL;DR
@@ -27,6 +28,11 @@ This project uses dense face/iris landmarks (MediaPipe FaceMesh) and direct regr
 - **Calibration:** Moving target / edge / random sequences; each frame logs `[features..., target_x, target_y]` to CSV
 - **Testing:** Randomly placed green rectangle; move the dot inside and hit E to record success
 - **Tracking:** Continuous prediction with temporal averaging for smoother motion
+
+## 🎥 Demo
+<video src="assets/demo.mp4" width="800" controls muted playsinline>
+  Your browser does not support the video tag.
+</video>
 
 ## 📦 Project Structure
 ```graphql
