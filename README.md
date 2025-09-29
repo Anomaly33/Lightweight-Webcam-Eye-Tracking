@@ -64,3 +64,23 @@ source .venv/bin/activate    # Linux/Mac
 pip install -r requirements.txt
 ```
 ### 4. Config(`config.ini`)
+Controls the calibration setup. Increasing `target_speed` makes the calibration faster but lesser data points collected. `record_frame_rate` specifes the number of frames of data colleced per second. Adjust it according to individual webcam specs.
+```ini
+[DEFAULT]
+image_size = 64
+target_speed = 600
+target_radius = 20
+map_scale = 10
+avg_window_length = 8
+record_frame_rate = 30
+number_of_test_points = 10
+points_to_collect = 250
+
+[COLOURS]
+white = (255,255,255,255)
+black = (0,0,0,255)
+gray = (120,120,120,255)
+red = (255,0,0,255)
+green = (0,255,0,255)
+blue = (0,128,255,255)
+```
