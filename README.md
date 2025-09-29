@@ -21,7 +21,7 @@ This project uses dense face/iris landmarks (MediaPipe FaceMesh) and direct regr
 - Guard-box: auto-pauses when you leave the allowed head region; resumes on return
 - Optional region map heatmap of collected samples
 
-## Method
+## 🧠 Method
 - **Landmarks & Features:** Camera frames → MediaPipe FaceMesh → 478 × (x,y,z) flattened vector
 - **Screen Prediction:** Two regressors: fₓ(features) → x and fᵧ(features) → y
 - **Calibration:** Moving target / edge / random sequences; each frame logs `[features..., target_x, target_y]` to CSV
