@@ -3,9 +3,10 @@ A **webcam-only** eye-tracking system that works on **any screen size**.
 Edit this line in `main.py` to set your exact window size/flags:
 ```python
 screen = pygame.display.set_mode((1920, 1080), pygame.NOFRAME)
+```
 It has been tested on large displays where traditional IR eye trackers often struggle or are impractical.
 The system extracts 478×3 MediaPipe FaceMesh landmarks and learns lightweight ML regressors to predict on-screen gaze coordinates in real time. Includes fast calibration, testing UI, and tracking.
-```
+
 ---
 
 ## TL;DR
@@ -51,3 +52,22 @@ eye-tracking/
 ├─ data_csvs/              # calibration CSVs (auto)
 └─ test_results/           # per-model test logs (auto)
 ```
+---
+
+## ⚙️ Setup
+### 1. Clone the repo
+```bash
+git clone https://github.com/Anomaly33/Lightweight-Webcam-Eye-Tracking.git
+cd hcp-fmri-domain-adversarial-classification
+```
+### 2. Create Environment
+```bash
+python -m venv .venv
+source .venv/bin/activate    # Linux/Mac
+# On Windows: .venv\Scripts\activate
+```
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+---
