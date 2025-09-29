@@ -37,11 +37,11 @@ eye-tracking/
 ├─ Target.py               # Target (dot) + Test rectangle rendering (pygame)
 ├─ utils.py                # Config, region map, helpers
 ├─ create_models.py        # (Optional) offline training example
-├─ Eye_tracking_system.pdf # Method & results paper
 ├─ config.ini              # Your settings (see below)
 ├─ data/                   # region_map.npy (auto)
 ├─ data_csvs/              # calibration CSVs (auto)
-└─ test_results/           # per-model test logs (auto)
+├─ test_results/           # per-model test logs (auto)
+└─ assets                  # demo files
 ```
 
 ## ⚙️ Setup
